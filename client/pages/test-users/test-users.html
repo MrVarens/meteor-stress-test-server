@@ -1,0 +1,9 @@
+<template name="Pages_TestUsers">
+    <h4 class="form-group">
+        Actions:
+        <button class="btn btn-default actions-add" disabled="{{#if $not $Globals.isEditEnabled.get}}disabled{{/if}}">Add</button>
+        <button class="btn btn-danger actions-clear" disabled="{{#if $not $Globals.isEditEnabled.get}}disabled{{/if}}">Clear</button>
+    </h4>
+
+    {{> tabular table=$TabularTables.TestUsers class="table table-striped table-bordered table-condensed"}}
+</template>

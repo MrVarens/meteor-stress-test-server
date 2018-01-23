@@ -1,0 +1,26 @@
+<template name="Pages_TestUsers_Add">
+    <div class="modal fade modals-test-users-add">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add test users</h4>
+                </div>
+
+                <div class="modal-body">
+                    {{> quickForm
+                        id="autoform-test-users-add"
+                        schema=$FormSchemas.TestUsers.Add
+                        type="method"
+                        meteormethod="testUsers.add"
+                        buttonContent=false
+                    }}
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary actions-add">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

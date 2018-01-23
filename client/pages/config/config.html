@@ -1,0 +1,12 @@
+<template name="Pages_Config">
+    {{> quickForm
+        id="autoform-config"
+        schema=$FormSchemas.Config
+        type="method-update"
+        meteormethod="config.edit"
+        doc=doc
+        validation="submitThenBlur"
+        buttonContent="Save"
+        resetOnSuccess=false
+    }}
+</template>

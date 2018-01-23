@@ -1,0 +1,76 @@
+<template name="Layout_Main">
+    {{#if currentUser}}
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="#">Meteor - Stress test</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li>{{#linkTo route="Home"}}Dashboard{{/linkTo}}</li>
+                        <li>{{#linkTo route="Config"}}Config{{/linkTo}}</li>
+                        <li>{{#linkTo route="TestUsers"}}Test users{{/linkTo}}</li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {{/if}}
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+                {{#if currentUser}}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4 class="form-group">
+                                State:
+                                {{#if isRunning}}
+                                    <div class="label label-success">ON</div>
+                                {{else}}
+                                    <div class="label label-danger">OFF</div>
+                                {{/if}}
+                            </h4>
+
+                            {{#if isRunning}}
+                                <button class="btn btn-danger col-xs-12 change-state">Stop</button>
+                            {{else}}
+                                {{#if $gt startBlockTime 0}}
+                                    <button class="btn col-xs-12" disabled="disabled">
+                                        Blocked ({{startBlockTime}})
+                                    </button>
+                                {{else}}
+                                    <button class="btn btn-success col-xs-12 change-state">
+                                        Start
+                                    </button>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+
+            <div class="col-sm-8 text-left page-{{currentRouteName}}">
+                {{> yield}}
+            </div>
+
+            <div class="col-sm-2 sidenav"></div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>Meteor - Stress test</p>
+    </footer>
+
+    {{> sAlert}}
+</template>

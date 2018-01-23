@@ -1,0 +1,3 @@
+Config = {
+    CLIENT_PROTECTION_TOKEN: "NxELKyxk8QfgtYPif0BFrrb63Nz56rUrm6nJenvgVTvMUSKLWwuzryAI1PT4"
+};

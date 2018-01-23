@@ -1,0 +1,17 @@
+# WebStorm project files
+.idea
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Scripts
+*.bat
+*.bash
+
+# Dependency directory
+node_modules/
+
+# Always add these files
+!.gitkeep
